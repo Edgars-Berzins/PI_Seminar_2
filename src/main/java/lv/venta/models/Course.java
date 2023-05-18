@@ -54,6 +54,16 @@ public class Course {
 	private Professor professor;
 
 	@OneToMany(mappedBy = "course")
-	private Collection<Grade> grades;;
+	private Collection<Grade> grades;
+
+	public Course(
+			@NotNull @Pattern(regexp = "[A-Z]{1}[a-zēūīļķšāžčņ\\ ]+", message = "Pirmajam burta mjābūt lielajam") @Size(min = 5, max = 50) String title,
+			@NotNull @Min(1) @Max(20) int creditPoints, Professor professor) {
+		this.title = title;
+		this.creditPoints = creditPoints;
+		this.professor = professor;
+	};
+	
+	
 
 }
