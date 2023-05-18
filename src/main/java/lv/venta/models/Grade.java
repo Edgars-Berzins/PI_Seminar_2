@@ -6,6 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -16,36 +18,27 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Table(name = "course_table")
+@Table(name = "grade_table")
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @ToString
-public class Grade  {
+public class Grade {
 
 	@Setter(value = AccessLevel.NONE)
-	@Column(name = "Idc") // DB pusē izveidosies kolonna "id" un būs kā auto increment PK
+	@Column(name = "Idg") // DB pusē izveidosies kolonna "id" un būs kā auto increment PK
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long idc;
+	private long idg;
 
-	@Column(name = "Title") // DB pusē izveidosies kolonna "Name"
-	@NotNull
-	@Pattern(regexp = "[A-Z]{1}[a-zēūīļķšāžčņ\\ ]+", message = "Pirmajam burta mjābūt lielajam")
-	@Size(min = 3, max = 50)
-	private String title;
+	@Column(name = "Grade_Value") // DB pusē izveidosies kolonna "id" un būs kā auto increment PK
+	@Min(value = 0)
+	@Max(value = 10)
+	private int gradeValue;
 
-	private Professor professor;
+	private Student student;
 
-	public Grade(
-			@NotNull @Pattern(regexp = "[A-Z]{1}[a-zēūīļķšāžčņ\\ ]+", message = "Pirmajam burta mjābūt lielajam") @Size(min = 3, max = 50) String title,
-			Professor professor) {
-		super();
-		this.title = title;
-		this.professor = professor;
-	}
-	
-	
+	private Course course;
 
 }
