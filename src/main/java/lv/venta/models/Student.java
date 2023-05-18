@@ -1,10 +1,16 @@
 package lv.venta.models;
 
+import java.util.Collection;
+
+import org.hibernate.annotations.ManyToAny;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -42,6 +48,9 @@ public class Student {
 	@Size(min = 3, max = 30)
 	private String surname;
 
+	@OneToMany(mappedBy = "student")
+	private Collection<Grade> grades;
+
 	public Student(
 			@NotNull @Pattern(regexp = "[A-Z]{1}[a-zēūīļķšāžčņ\\ ]+", message = "Pirmajam burta mjābūt lielajam") @Size(min = 3, max = 30) String name,
 			@NotNull @Pattern(regexp = "[A-Z]{1}[a-zēūīļķšāžčņ\\ ]+", message = "Pirmajam burta mjābūt lielajam") @Size(min = 3, max = 30) String surname) {
@@ -49,5 +58,4 @@ public class Student {
 		this.surname = surname;
 	}
 
-	
 }

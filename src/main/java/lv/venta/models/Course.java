@@ -1,11 +1,14 @@
 package lv.venta.models;
 
+import java.util.Collection;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Max;
@@ -47,7 +50,10 @@ public class Course {
 	private int creditPoints;
 
 	@OneToOne
-	@JoinColumn(name = "Idp")//foreign key
+	@JoinColumn(name = "Idp") // foreign key
 	private Professor professor;
+
+	@OneToMany(mappedBy = "course")
+	private Collection<Grade> grades;;
 
 }
