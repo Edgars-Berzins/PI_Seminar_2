@@ -7,7 +7,7 @@
 		<version>3.0.6</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
+	<groupId>lv.venta</groupId>
 	<artifactId>PI_Seminar_2</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>PI_Seminar_2</name>
@@ -16,6 +16,11 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+	<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

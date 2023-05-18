@@ -1,4 +1,4 @@
-package com.example.demo;
+package lv.venta;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -22,7 +22,7 @@ public class PiSeminar2Application {
 		SpringApplication.run(PiSeminar2Application.class, args);
 	}
 
-	@Bean // isauks funkciju automātiski, kad startēs sistēmu
+	@Bean // izsauks funkciju automātiski, kad startēs sistēmu
 	public CommandLineRunner testModel(IProfessorRepo profRepo, IStudentRepo stRepo, ICourseRepo courRepo,
 			IGradeRepo grRepo) {
 
@@ -41,7 +41,7 @@ public class PiSeminar2Application {
 				stRepo.save(st1);
 				stRepo.save(st2);
 
-				Course c1 = new Course("JAVA I", 4, pr1);
+				Course c1 = new Course("Java i", 4, pr1);
 				Course c2 = new Course("Datubazes", 4, pr2);
 				courRepo.save(c1);
 				courRepo.save(c2);

@@ -1,10 +1,14 @@
 package lv.venta.models;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
@@ -44,12 +48,12 @@ public class Professor {
 	private String surname;
 
 	@Column(name = "Degree") // DB pusē izveidosies kolonna "Degree"
-	@NotBlank
+	@NotNull
 	private Degree degree;
 
-	@OneToOne (mappedBy = "professor")//sasaiste ar otras klases mainīgo
+	@ManyToMany(mappedBy = "professor") // sasaiste ar otras klases mainīgo
 	@ToString.Exclude
-	private Course course;
+	private Collection<Course> course = new ArrayList<>();
 
 	public Professor(String name, String surname, Degree degree) {
 		this.name = name;
