@@ -47,7 +47,7 @@ public class PiSeminar2Application {
 				stRepo.save(st1);
 				stRepo.save(st2);
 
-				Course c1 = new Course("Java i", 4, new ArrayList<>(Arrays.asList(pr1)));
+				Course c1 = new Course("Javag i", 4, new ArrayList<>(Arrays.asList(pr1)));
 				Course c2 = new Course("Datubazes", 4, new ArrayList<>(Arrays.asList(pr2)));
 				Course c3 = new Course("Porgramaturas inzenierija", 4, new ArrayList<>(Arrays.asList(pr1, pr3)));
 				courRepo.save(c1);
