@@ -51,7 +51,7 @@ public class Professor {
 	@NotNull
 	private Degree degree;
 
-	@ManyToMany(mappedBy = "professor") // sasaiste ar otras klases mainīgo
+	@ManyToMany(mappedBy = "professors") // sasaiste ar otras klases mainīgo
 	@ToString.Exclude
 	private Collection<Course> courses = new ArrayList<>();
 

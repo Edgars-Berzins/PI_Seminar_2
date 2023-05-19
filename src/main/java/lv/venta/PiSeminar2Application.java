@@ -56,7 +56,7 @@ public class PiSeminar2Application {
 
 				c1.addProfessor(pr1);
 				c1.addProfessor(pr3);
-				c2.addProfessor(pr1);
+				c2.addProfessor(pr2);
 				c3.addProfessor(pr1);
 				courRepo.save(c1);
 				courRepo.save(c2);
