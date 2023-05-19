@@ -62,6 +62,7 @@ public class PiSeminar2Application {
 				courRepo.save(c2);
 				courRepo.save(c3);
 
+				
 				grRepo.save(new Grade(10, st1, c1));// Janis sanem 10 JAVA I
 				grRepo.save(new Grade(6, st1, c2));
 				grRepo.save(new Grade(8, st2, c1));
