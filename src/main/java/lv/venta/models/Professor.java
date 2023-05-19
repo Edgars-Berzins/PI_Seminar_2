@@ -27,25 +27,7 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-public class Professor {
-
-	@Setter(value = AccessLevel.NONE)
-	@Column(name = "Idp") // DB pusē izveidosies kolonna "id" un būs kā auto increment PK
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long idp;
-
-	@Column(name = "Name") // DB pusē izveidosies kolonna "Name"
-	@NotNull
-	@Pattern(regexp = "[A-Z]{1}[a-zēūīļķšāžčņ\\ ]+", message = "Pirmajam burta mjābūt lielajam")
-	@Size(min = 3, max = 30)
-	private String name;
-
-	@Column(name = "Surname") // DB pusē izveidosies kolonna "Surname"
-	@NotNull
-	@Pattern(regexp = "[A-Z]{1}[a-zēūīļķšāžčņ\\ ]+", message = "Pirmajam burta mjābūt lielajam")
-	@Size(min = 3, max = 30)
-	private String surname;
+public class Professor extends Person {
 
 	@Column(name = "Degree") // DB pusē izveidosies kolonna "Degree"
 	@NotNull
@@ -56,8 +38,7 @@ public class Professor {
 	private Collection<Course> courses = new ArrayList<>();
 
 	public Professor(String name, String surname, Degree degree) {
-		this.name = name;
-		this.surname = surname;
+		super(name, surname);
 		this.degree = degree;
 	}
 
@@ -65,8 +46,7 @@ public class Professor {
 		if (!courses.contains(inputCourse)) {
 			courses.add(inputCourse);
 		}
-		
-		
+
 	}
 
 }

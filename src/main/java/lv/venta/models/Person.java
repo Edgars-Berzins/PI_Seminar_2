@@ -20,7 +20,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class Person {
-	
+
 	@Setter(value = AccessLevel.NONE)
 	@Column(name = "Idpe") // DB pusē izveidosies kolonna "id" un būs kā auto increment PK
 	@Id
@@ -38,5 +38,12 @@ public class Person {
 	@Pattern(regexp = "[A-Z]{1}[a-zēūīļķšāžčņ\\ ]+", message = "Pirmajam burta mjābūt lielajam")
 	@Size(min = 3, max = 30)
 	private String surname;
-	
+
+	public Person(
+			@NotNull @Pattern(regexp = "[A-Z]{1}[a-zēūīļķšāžčņ\\ ]+", message = "Pirmajam burta mjābūt lielajam") @Size(min = 3, max = 30) String name,
+			@NotNull @Pattern(regexp = "[A-Z]{1}[a-zēūīļķšāžčņ\\ ]+", message = "Pirmajam burta mjābūt lielajam") @Size(min = 3, max = 30) String surname) {
+		this.name = name;
+		this.surname = surname;
+	}
+
 }

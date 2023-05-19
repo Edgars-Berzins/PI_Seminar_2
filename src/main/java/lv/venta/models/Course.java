@@ -53,7 +53,7 @@ public class Course {
 	private int creditPoints;
 
 	@ManyToMany
-	@JoinTable(name = "course_prof_table", joinColumns = @JoinColumn(name = "idp"), inverseJoinColumns = @JoinColumn(name = "idc")) // foreign
+	@JoinTable(name = "course_prof_table", joinColumns = @JoinColumn(name = "Idpe"), inverseJoinColumns = @JoinColumn(name = "idc")) // foreign
 	// key
 	private Collection<Professor> professors = new ArrayList<>();
 

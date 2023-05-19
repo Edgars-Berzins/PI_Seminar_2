@@ -43,7 +43,7 @@ public class Grade {
 	private int gradeValue;
 
 	@ManyToOne
-	@JoinColumn(name = "Ids")
+	@JoinColumn(name = "Idpe")
 	private Student student;
 
 	@ManyToOne
