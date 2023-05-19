@@ -65,6 +65,8 @@ public class Professor {
 		if (!courses.contains(inputCourse)) {
 			courses.add(inputCourse);
 		}
+		
+		
 	}
 
 }
