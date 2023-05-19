@@ -53,12 +53,18 @@ public class Professor {
 
 	@ManyToMany(mappedBy = "professor") // sasaiste ar otras klases mainīgo
 	@ToString.Exclude
-	private Collection<Course> course = new ArrayList<>();
+	private Collection<Course> courses = new ArrayList<>();
 
 	public Professor(String name, String surname, Degree degree) {
 		this.name = name;
 		this.surname = surname;
 		this.degree = degree;
+	}
+
+	public void addCourse(Course inputCourse) {
+		if (!courses.contains(inputCourse)) {
+			courses.add(inputCourse);
+		}
 	}
 
 }

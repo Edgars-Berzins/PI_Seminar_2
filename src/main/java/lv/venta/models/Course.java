@@ -55,7 +55,7 @@ public class Course {
 	@ManyToMany
 	@JoinTable(name = "course_prof_table", joinColumns = @JoinColumn(name = "idp"), inverseJoinColumns = @JoinColumn(name = "idc")) // foreign
 	// key
-	private Collection<Professor> professor = new ArrayList<>();
+	private Collection<Professor> professors = new ArrayList<>();
 
 	@OneToMany(mappedBy = "course")
 	@ToString.Exclude
@@ -67,6 +67,12 @@ public class Course {
 		this.title = title;
 		this.creditPoints = creditPoints;
 		// this.professor = professor;
-	};
+	}
+
+	public void addProfessor(Professor inputProfessor) {
+		if (!professors.contains(inputProfessor)) {
+			professors.add(inputProfessor);
+		}
+	}
 
 }
